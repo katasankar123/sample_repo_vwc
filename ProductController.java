@@ -57,6 +57,13 @@ public class ProductController {
 		Product1 pro = pr.findById(productId).orElseThrow(() -> new ResourceNotFoundException("Your Entered Product Number is not available in Database,Could you please try with other Emp Number :: " + productId));
         return ResponseEntity.ok().body(pro);
         }
+		/*Rq--2311 Start  changes modified by Sankar*/
+		@PutMapping("/pupd")
+private Product1 update(@RequestBody Product1 product){
+	ps.p1(product);
+	return product;
+}
+/*Rq--2311 end*/
 @GetMapping("/pget")
 public ResponseEntity<List<Product1>> getAllProducts(@RequestParam (required = false) String name) {
 	try {
